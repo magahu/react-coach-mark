@@ -7,7 +7,7 @@
 }
 
 .harsh-coach-mark {
-  border: 1px solid var(--black-transparent);
+  border: 1px solid red;
   box-sizing: border-box;
   position: fixed;
   z-index: 9999998;
