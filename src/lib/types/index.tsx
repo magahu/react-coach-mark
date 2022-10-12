@@ -30,10 +30,12 @@ export interface ICoachProps {
 }
 
 export interface ICoachCoreProps {
-    activate: boolean
+    activate: boolean,
+    activateBackground: boolean,
     component: ReactNode,
     element: Element,
     tooltip: ITooltip
+    replay: boolean
 }
 
 
