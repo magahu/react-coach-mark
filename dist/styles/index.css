@@ -6,8 +6,16 @@
   --tooltip-shift: calc(-2 * var(--tooltip-height));
 }
 
+.blue-highlight{
+  border: 10px solid #0077FF;
+  border-radius: 10px;
+}
+
+.dark-background{
+  box-shadow: 0px 0px 0px 2000px var(--black-transparent);
+}
+
 .harsh-coach-mark {
-  border: 1px solid red;
   box-sizing: border-box;
   position: fixed;
   z-index: 9999998;
@@ -15,7 +23,6 @@
   left: 0;
   bottom: 0;
   right: 0;
-  box-shadow: 0px 0px 0px 2000px var(--black-transparent);
   border-radius: var(--tooltip-move);
   -webkit-transition: all 0.3s ease-out;
   -moz-transition: all 0.3s ease-out;
