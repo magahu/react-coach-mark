@@ -18,6 +18,25 @@ var CoachMarkCore = function (props) {
         var _a;
         if (!(props.activate && props.element))
             return;
+        if (props.customActionBefore !== undefined)
+            props.customActionBefore();
+        if (props.highlightBlock !== undefined) {
+            var element = null;
+            if (typeof props.highlightBlock === 'string') {
+                try {
+                    element = document.querySelector(props.highlightBlock) || null;
+                }
+                catch (e) {
+                    console.error(props.highlightBlock + 'is not valid in document.querySelector');
+                }
+            }
+            else if (props.highlightBlock && props.highlightBlock.current) {
+                console.log('here');
+                element = props.highlightBlock.current;
+            }
+            if (element !== null)
+                element.className = (element === null || element === void 0 ? void 0 : element.className) + 'blue-highlight';
+        }
         (_a = props.element) === null || _a === void 0 ? void 0 : _a.scrollIntoView({ behavior: 'smooth', block: 'center' });
         CoachUtils.dimensionSetter({ element: props.element, setDimension: setDimension });
         var scrollEvent = function () {
@@ -25,6 +44,8 @@ var CoachMarkCore = function (props) {
         };
         window.addEventListener('scroll', scrollEvent);
         window.addEventListener('resize', scrollEvent);
+        if (props.customActionAfter !== undefined)
+            props.customActionAfter();
         return function () {
             window.removeEventListener('scroll', scrollEvent);
             window.removeEventListener('resize', scrollEvent);
@@ -37,7 +58,7 @@ var CoachMarkCore = function (props) {
         }
         return null;
     }
-    var base = React.createElement("div", { className: "harsh-coach-mark", style: {
+    var base = React.createElement("div", { className: props.darkBackground ? "harsh-coach-mark dark-background" : "harsh-coach-mark", style: {
             top: dimension.topSpace,
             left: dimension.leftSpace,
             height: dimension.height + 10,

@@ -26,14 +26,21 @@ export interface ICoachProps {
     /*
         default value of position be bottom
     */
-    tooltip?: ITooltip
+    tooltip?: ITooltip,
+    darkBackground: boolean,
+    customActionBefore?: ()=>void,
+    highlightBlock: MutableRefObject<null> | string,
 }
 
 export interface ICoachCoreProps {
     activate: boolean
     component: ReactNode,
     element: Element,
-    tooltip: ITooltip
+    tooltip: ITooltip,
+    darkBackground: boolean,
+    customActionBefore?: ()=>void,
+    customActionAfter?: ()=>void,
+    highlightBlock?: MutableRefObject<null> | string
 }
 
 
@@ -41,7 +48,8 @@ export interface IDirections {
     top?: number,
     bottom?: number,
     right?: number,
-    left?: number
+    left?: number,
+    center?: number
 };
 
 export interface IDimension {

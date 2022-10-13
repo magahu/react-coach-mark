@@ -9,6 +9,25 @@ const CoachMarkCore: React.FC<ICoachCoreProps> = (props) => {
 
     useEffect(() => {
         if (!(props.activate && props.element)) return;
+
+        if (props.customActionBefore !== undefined)
+            props.customActionBefore()
+
+        if (props.highlightBlock !== undefined) {
+
+            let element: Element | null = null;
+            if (typeof props.highlightBlock === 'string') {
+                try {
+                    element = document.querySelector(props.highlightBlock) || null;
+                } catch (e) { console.error(props.highlightBlock + 'is not valid in document.querySelector') }
+            } else if (props.highlightBlock && props.highlightBlock.current) {
+                console.log('here')
+                element = props.highlightBlock.current;
+            }
+            if(element !== null)
+                element.className = element?.className + 'blue-highlight';
+        }
+
         props.element?.scrollIntoView({ behavior: 'smooth', block: 'center' });
         CoachUtils.dimensionSetter({ element: props.element, setDimension });
         const scrollEvent = function () {
@@ -16,10 +35,16 @@ const CoachMarkCore: React.FC<ICoachCoreProps> = (props) => {
         }
         window.addEventListener('scroll', scrollEvent);
         window.addEventListener('resize', scrollEvent);
+
+        if (props.customActionAfter !== undefined)
+            props.customActionAfter()
+
         return () => {
             window.removeEventListener('scroll', scrollEvent);
             window.removeEventListener('resize', scrollEvent);
         }
+
+
         //eslint-disable-next-line
     }, [props.activate, props.element]);
 
@@ -30,7 +55,7 @@ const CoachMarkCore: React.FC<ICoachCoreProps> = (props) => {
         return null;
     }
 
-    const base = <div className="harsh-coach-mark"
+    const base = <div className={props.darkBackground ? "harsh-coach-mark dark-background" : "harsh-coach-mark"}
         style={{
             top: dimension.topSpace,
             left: dimension.leftSpace,
