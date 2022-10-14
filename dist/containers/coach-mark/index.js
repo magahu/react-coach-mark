@@ -18,6 +18,15 @@ var CoachMark = function (props) {
     var element = null;
     if (typeof props.reference === 'string') {
         try {
+            var observer_1 = new MutationObserver(function (mutations) {
+                if (typeof props.reference === 'string' && document.querySelector(props.reference)) {
+                    observer_1.disconnect();
+                }
+            });
+            observer_1.observe(document.body, {
+                childList: true,
+                subtree: true,
+            });
             element = document.querySelector(props.reference) || null;
         }
         catch (e) {
@@ -25,10 +34,8 @@ var CoachMark = function (props) {
         }
     }
     else if (props.reference && props.reference.current) {
-        console.log('here');
         element = props.reference.current;
     }
-    console.log('here');
     console.log(element, props);
     if (!element) {
         return null;

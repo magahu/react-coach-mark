@@ -12,7 +12,7 @@ export interface ICoachProps {
     reference: MutableRefObject<null> | string;
     tooltip?: ITooltip;
     darkBackground: boolean;
-    customActionBefore?: () => void;
+    customActionBefore?: () => Promise<void>;
     highlightBlock?: MutableRefObject<null> | string;
 }
 export interface ICoachCoreProps {
