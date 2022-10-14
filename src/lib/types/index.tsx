@@ -29,7 +29,7 @@ export interface ICoachProps {
     tooltip?: ITooltip,
     darkBackground: boolean,
     customActionBefore?: ()=>void,
-    highlightBlock: MutableRefObject<null> | string,
+    highlightBlock?: MutableRefObject<null> | string,
 }
 
 export interface ICoachCoreProps {

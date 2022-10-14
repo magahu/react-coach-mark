@@ -4,6 +4,9 @@ import CoachMarkCore from './coach-mark';
 
 const CoachMark: React.FC<ICoachProps> = (props) => {
 
+    if (props.customActionBefore !== undefined)
+            props.customActionBefore()
+
     let element: Element | null = null;
     if (typeof props.reference === 'string') {
         try {

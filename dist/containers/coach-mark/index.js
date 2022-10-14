@@ -13,6 +13,8 @@ import React from 'react';
 import CoachMarkCore from './coach-mark';
 var CoachMark = function (props) {
     var _a;
+    if (props.customActionBefore !== undefined)
+        props.customActionBefore();
     var element = null;
     if (typeof props.reference === 'string') {
         try {

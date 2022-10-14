@@ -10,9 +10,6 @@ const CoachMarkCore: React.FC<ICoachCoreProps> = (props) => {
     useEffect(() => {
         if (!(props.activate && props.element)) return;
 
-        if (props.customActionBefore !== undefined)
-            props.customActionBefore()
-
         if (props.highlightBlock !== undefined) {
 
             let element: Element | null = null;

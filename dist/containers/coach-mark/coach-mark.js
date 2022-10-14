@@ -18,8 +18,6 @@ var CoachMarkCore = function (props) {
         var _a;
         if (!(props.activate && props.element))
             return;
-        if (props.customActionBefore !== undefined)
-            props.customActionBefore();
         if (props.highlightBlock !== undefined) {
             var element = null;
             if (typeof props.highlightBlock === 'string') {
