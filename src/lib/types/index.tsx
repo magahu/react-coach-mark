@@ -29,6 +29,7 @@ export interface ICoachProps {
     tooltip?: ITooltip,
     darkBackground: boolean,
     customActionBefore?: ()=>Promise<void>,
+    customActionAfter?: ()=>void,
     highlightBlock?: MutableRefObject<null> | string,
 }
 

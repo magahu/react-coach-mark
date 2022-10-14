@@ -56,7 +56,7 @@
   border-bottom-width: var(--tooltip-height);
   border-style: solid;
   background: transparent;
-  border-color: #ffffffdb;
+  border-color: transparent;
   position: absolute;
 }
 
