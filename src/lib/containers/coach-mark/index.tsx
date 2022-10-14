@@ -23,6 +23,7 @@ const CoachMark: React.FC<ICoachProps> = (props) => {
     const coreProps: ICoachCoreProps = {
         ...props,
         element,
+        stepWasOpened: true,
         tooltip: {
             position: props?.tooltip?.position || 'bottom'
         }

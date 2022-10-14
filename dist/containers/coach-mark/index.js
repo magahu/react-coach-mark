@@ -31,7 +31,7 @@ var CoachMark = function (props) {
     if (!element) {
         return null;
     }
-    var coreProps = __assign(__assign({}, props), { element: element, tooltip: {
+    var coreProps = __assign(__assign({}, props), { element: element, stepWasOpened: true, tooltip: {
             position: ((_a = props === null || props === void 0 ? void 0 : props.tooltip) === null || _a === void 0 ? void 0 : _a.position) || 'bottom'
         } });
     return (React.createElement(React.Fragment, null,

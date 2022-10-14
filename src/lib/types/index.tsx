@@ -42,6 +42,7 @@ export interface ICoachCoreProps {
     customActionAfter?: ()=>void,
     highlightBlock?: MutableRefObject<null> | string,
     reference: MutableRefObject<null> | string,
+    stepWasOpened: boolean
 }
 
 
@@ -56,7 +57,7 @@ export interface IDirections {
 export interface IDimension {
     height: number,
     width: number,
-    leftSpace: number, rightSpace: number, topSpace: number, bottomSpace: number
+    leftSpace: number, rightSpace: number, topSpace: number, bottomSpace: number, centerSpace: number
 }
 
 export interface IDimensionSetter {

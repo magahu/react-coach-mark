@@ -9,7 +9,12 @@ const CoachMarkCore: React.FC<ICoachCoreProps> = (props) => {
 
     useEffect(() => {
 
-        if(!props.activate) return;
+        if(props.activate === false ){
+
+            if (props.stepWasOpened === true && props.customActionAfter !== undefined)
+                props.customActionAfter()
+        };
+
         if (typeof props.reference === 'string') {
             try {
                 let element: Element | null = null;
@@ -31,7 +36,6 @@ const CoachMarkCore: React.FC<ICoachCoreProps> = (props) => {
                     element = document.querySelector(props.highlightBlock) || null;
                 } catch (e) { console.error(props.highlightBlock + 'is not valid in document.querySelector') }
             } else if (props.highlightBlock && props.highlightBlock.current) {
-                console.log('here')
                 element = props.highlightBlock.current;
             }
             if(element !== null)
@@ -45,9 +49,6 @@ const CoachMarkCore: React.FC<ICoachCoreProps> = (props) => {
         }
         window.addEventListener('scroll', scrollEvent);
         window.addEventListener('resize', scrollEvent);
-
-        if (props.customActionAfter !== undefined)
-            props.customActionAfter()
 
         return () => {
             window.removeEventListener('scroll', scrollEvent);

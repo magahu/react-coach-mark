@@ -35,7 +35,7 @@
   box-sizing: content-box;
   position: fixed;
   z-index: 9999999;
-  background-color: #ffffffdb;
+  background-color: transparent;
   padding: var(--tooltip-move);
   border-radius: 4px;
   -webkit-transition: all 0.3s ease-out;

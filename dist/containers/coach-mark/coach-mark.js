@@ -16,8 +16,11 @@ var CoachMarkCore = function (props) {
     var _a = useState(null), dimension = _a[0], setDimension = _a[1];
     useEffect(function () {
         var _a;
-        if (!props.activate)
-            return;
+        if (props.activate === false) {
+            if (props.stepWasOpened === true && props.customActionAfter !== undefined)
+                props.customActionAfter();
+        }
+        ;
         if (typeof props.reference === 'string') {
             try {
                 var element = null;
@@ -43,7 +46,6 @@ var CoachMarkCore = function (props) {
                 }
             }
             else if (props.highlightBlock && props.highlightBlock.current) {
-                console.log('here');
                 element = props.highlightBlock.current;
             }
             if (element !== null)
@@ -56,8 +58,6 @@ var CoachMarkCore = function (props) {
         };
         window.addEventListener('scroll', scrollEvent);
         window.addEventListener('resize', scrollEvent);
-        if (props.customActionAfter !== undefined)
-            props.customActionAfter();
         return function () {
             window.removeEventListener('scroll', scrollEvent);
             window.removeEventListener('resize', scrollEvent);

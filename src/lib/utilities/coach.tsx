@@ -23,8 +23,15 @@ export function toolTipPlacementCalculator({ dimension, position }: IToolTipPlac
         }
     }
 
+    if (position === 'center') {
+        return {
+            right: dimension.width +  dimension.bottomSpace  + 30,
+            top: dimension.topSpace,
+        }
+    }
+
     return {
-        top: dimension.height + dimension.topSpace + 30,
+        top: dimension.height + dimension.height + 30,
         left: dimension.leftSpace,
     }
 
@@ -40,5 +47,6 @@ export function dimensionSetter({ element, setDimension }: IDimensionSetter) {
         rightSpace: (window.innerWidth - rect.right - 5),
         topSpace: rect.top - 5,
         bottomSpace: (window.innerHeight - rect.bottom - 5),
+        centerSpace: (window.innerWidth - rect.right)
     })
 }
