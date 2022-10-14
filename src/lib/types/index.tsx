@@ -40,7 +40,8 @@ export interface ICoachCoreProps {
     darkBackground: boolean,
     customActionBefore?: ()=>void,
     customActionAfter?: ()=>void,
-    highlightBlock?: MutableRefObject<null> | string
+    highlightBlock?: MutableRefObject<null> | string,
+    reference: MutableRefObject<null> | string,
 }
 
 

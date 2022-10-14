@@ -24,6 +24,7 @@ export interface ICoachCoreProps {
     customActionBefore?: () => void;
     customActionAfter?: () => void;
     highlightBlock?: MutableRefObject<null> | string;
+    reference: MutableRefObject<null> | string;
 }
 export interface IDirections {
     top?: number;

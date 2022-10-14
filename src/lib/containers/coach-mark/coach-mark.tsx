@@ -10,6 +10,17 @@ const CoachMarkCore: React.FC<ICoachCoreProps> = (props) => {
     useEffect(() => {
         if (!(props.activate && props.element)) return;
 
+        if (typeof props.reference === 'string') {
+            try {
+                let element: Element | null = null;
+                element = document.querySelector(props.reference) || null;
+                if(!element)
+                    return
+
+                props.element = element
+            } catch (e) { console.error(props.reference + 'is not valid in document.querySelector') }
+        }
+
         if (props.highlightBlock !== undefined) {
 
             let element: Element | null = null;

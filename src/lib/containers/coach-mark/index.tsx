@@ -10,16 +10,6 @@ const CoachMark: React.FC<ICoachProps> = (props) => {
     let element: Element | null = null;
     if (typeof props.reference === 'string') {
         try {
-            const observer = new MutationObserver(mutations => {
-                if (typeof props.reference === 'string' && document.querySelector(props.reference)) {
-                    observer.disconnect();
-                }
-            });
-    
-            observer.observe(document.body, {
-                childList: true,
-                subtree: true,
-            });
             element = document.querySelector(props.reference) || null;
         } catch (e) { console.error(props.reference + 'is not valid in document.querySelector') }
     } else if (props.reference && props.reference.current) {
