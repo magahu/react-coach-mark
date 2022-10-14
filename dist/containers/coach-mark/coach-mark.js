@@ -16,7 +16,7 @@ var CoachMarkCore = function (props) {
     var _a = useState(null), dimension = _a[0], setDimension = _a[1];
     useEffect(function () {
         var _a;
-        if (!(props.activate && props.element))
+        if (!props.activate)
             return;
         if (typeof props.reference === 'string') {
             try {
@@ -30,6 +30,8 @@ var CoachMarkCore = function (props) {
                 console.error(props.reference + 'is not valid in document.querySelector');
             }
         }
+        if (!(props.activate && props.element))
+            return;
         if (props.highlightBlock !== undefined) {
             var element = null;
             if (typeof props.highlightBlock === 'string') {

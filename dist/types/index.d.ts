@@ -1,6 +1,6 @@
 import { MutableRefObject, ReactNode } from "react";
 export interface IPositionTypes {
-    position: 'left' | 'top' | 'right' | 'bottom';
+    position: 'left' | 'top' | 'right' | 'bottom' | 'center';
 }
 export interface ITooltip extends IPositionTypes {
 }

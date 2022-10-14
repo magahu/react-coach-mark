@@ -8,8 +8,8 @@ const CoachMarkCore: React.FC<ICoachCoreProps> = (props) => {
     const [dimension, setDimension] = useState<IDimension | null>(null);
 
     useEffect(() => {
-        if (!(props.activate && props.element)) return;
 
+        if(!props.activate) return;
         if (typeof props.reference === 'string') {
             try {
                 let element: Element | null = null;
@@ -20,6 +20,8 @@ const CoachMarkCore: React.FC<ICoachCoreProps> = (props) => {
                 props.element = element
             } catch (e) { console.error(props.reference + 'is not valid in document.querySelector') }
         }
+
+        if (!(props.activate && props.element)) return;
 
         if (props.highlightBlock !== undefined) {
 
@@ -51,7 +53,6 @@ const CoachMarkCore: React.FC<ICoachCoreProps> = (props) => {
             window.removeEventListener('scroll', scrollEvent);
             window.removeEventListener('resize', scrollEvent);
         }
-
 
         //eslint-disable-next-line
     }, [props.activate, props.element]);
