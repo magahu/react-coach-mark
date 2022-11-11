@@ -1,6 +1,6 @@
-import { CoachMarkContainer } from './containers';
-import './styles/index.css';
+import { CoachMarkContainer } from './containers'
 
+import './styles/index.css'
 
 // function CoachMarkWeb(...args: any) {
 //     if (!document.getElementById('harsh-cm')) {
@@ -14,6 +14,5 @@ import './styles/index.css';
 //     );
 // }
 
-export * from './types';
-export { CoachMarkContainer as CoachMark };
-
+export * from './types'
+export { CoachMarkContainer as CoachMark }
