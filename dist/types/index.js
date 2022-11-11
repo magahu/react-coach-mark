@@ -1,6 +1,1 @@
-;
-;
-;
-;
-;
 //# sourceMappingURL=index.js.map

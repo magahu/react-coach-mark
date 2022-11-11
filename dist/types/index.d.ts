@@ -1,11 +1,12 @@
-import { MutableRefObject, ReactNode } from "react";
+import { MutableRefObject, ReactNode } from 'react';
 export interface IPositionTypes {
     position: 'left' | 'top' | 'right' | 'bottom' | 'center';
+    width?: number;
+    height?: number;
+    displaceVertical?: number;
+    displaceHorizontal?: number;
 }
-export interface ITooltip extends IPositionTypes {
-}
-export interface ITooltip extends IPositionTypes {
-}
+export declare type ITooltip = IPositionTypes;
 export interface ICoachProps {
     activate: boolean;
     component: ReactNode;
@@ -19,14 +20,12 @@ export interface ICoachProps {
 export interface ICoachCoreProps {
     activate: boolean;
     component: ReactNode;
-    element: Element;
+    element: Element | null;
     tooltip: ITooltip;
     darkBackground: boolean;
-    customActionBefore?: () => void;
     customActionAfter?: () => void;
     highlightBlock?: MutableRefObject<null> | string;
     reference: MutableRefObject<null> | string;
-    stepWasOpened: boolean;
 }
 export interface IDirections {
     top?: number;
@@ -50,4 +49,6 @@ export interface IDimensionSetter {
 }
 export interface IToolTipPlacement extends IPositionTypes {
     dimension: IDimension;
+    coachElementWidth: number;
+    coachElementHeight: number;
 }

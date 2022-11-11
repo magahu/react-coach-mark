@@ -1,3 +1,6 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
+/* eslint-disable prefer-spread */
+// eslint-disable-next-line @typescript-eslint/ban-types
 export function debounce(fn, time) {
     var timOut = null;
     return function () {
